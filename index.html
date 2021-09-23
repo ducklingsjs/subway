@@ -7,6 +7,7 @@
 		<script src="libraries/p5.min.js"></script>
 		<script src="libraries/p5.sound.min.js"></script>
 		<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+		<script type="text/javascript" src="message-slider.js"></script>
 		<script>
 			// Enable pusher logging - don't include this in production
 			Pusher.logToConsole = true;
@@ -17,7 +18,7 @@
 
 			var channel = pusher.subscribe('my-channel');
 			channel.bind('my-event', function (data) {
-				alert(JSON.stringify(data));
+				addMessage(data.message);
 			});
 
 			function sendMessage(message) {
@@ -76,6 +77,4 @@
 	</script>
 
 	<script src="sketch.js"></script>
-
-	<script type="text/javascript" src="message-slider.js"></script>
 </html>
