@@ -35,7 +35,7 @@ function setup() {
 	// mimics the autoplay policy
 	getAudioContext().suspend();
 
-	mediaElement = createAudio(RADIO.EXTRA, () => {
+	mediaElement = createAudio(RADIO.STUDENT, () => {
 		canPlay = true;
 	});
 
