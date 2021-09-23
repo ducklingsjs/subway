@@ -26,8 +26,10 @@
 			function processForm(e) {
 				if (e.preventDefault) e.preventDefault();
 				const messageInput = form.elements['messageInput'];
-				sendMessage(messageInput.value).then(() => {
+				const nameInput = form.elements['name'];
+				sendMessage(`${nameInput.value}: ${messageInput.value}`).then(() => {
 					messageInput.value = '';
+					nameInput.value = '';
 				});
 				return false;
 			}
@@ -37,6 +39,7 @@
 		<form id="my-form">
 			<h1>Pozdravi 🆒 ekipu!</h1>
 
+			<input id="name" name="name" placeholder="Ime"></input>
 			<textarea
 				id="messageInput"
 				name="messageInput"
