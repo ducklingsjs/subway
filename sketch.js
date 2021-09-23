@@ -75,7 +75,7 @@ function draw() {
 			stroke('#FAC8CD');
 			rotate(frameCount * 0.002);
 			strokeWeight(1);
-			polygon(mapbass + i, mapbass - i, 5 * i, 3);
+			polygon(mapbass + i, mapbass - i, 5 * i, 5);
 			pop();
 
 			push();
