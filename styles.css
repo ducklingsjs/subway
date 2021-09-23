@@ -36,7 +36,6 @@ body {
 
 .marquee {
 	flex: 1;
-	background: black;
 	color: white;
 	height: 40px;
 	display: flex;
