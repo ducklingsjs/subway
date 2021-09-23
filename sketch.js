@@ -106,7 +106,7 @@ function draw() {
 			}
 		}
 
-		fill(0);
+		noFill();
 		curveTightness(MAGIC.TIGHTNESS);
 		stroke('#98B6B1');
 		strokeWeight(MAGIC.CIRCLE.STROKE);
@@ -121,8 +121,8 @@ function draw() {
 				wave[index],
 				-1,
 				1,
-				min(windowHeight, windowWidth) / 5 - MAGIC.CIRCLE.DELTA,
-				min(windowHeight, windowWidth) / 5,
+				min(windowHeight, windowWidth) / 2 - MAGIC.CIRCLE.DELTA,
+				min(windowHeight, windowWidth) / 2,
 			);
 
 			const x = r * sin(i);
