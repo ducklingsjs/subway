@@ -55,8 +55,8 @@ body {
 }
 
 .message-list li:not(:last-child):after {
-	content: '\2022';
-	margin: 0 10px;
+	content: '\007C';
+	margin: 0 48px;
 }
 
 h1 {
