@@ -15,7 +15,7 @@
 
 			var channel = pusher.subscribe('my-channel');
 			channel.bind('my-event', function (data) {
-				// alert(JSON.stringify(data));
+				addMessage(data.message);
 			});
 
 			function sendMessage(message) {
@@ -45,8 +45,6 @@
 				});
 				return false;
 			}
-
-			function openModal() {}
 		</script>
 	</head>
 	<body>
