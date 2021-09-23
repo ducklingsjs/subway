@@ -108,7 +108,7 @@ function draw() {
 
 		fill(0);
 		curveTightness(MAGIC.TIGHTNESS);
-		stroke('#FCEC52');
+		stroke('#98B6B1');
 		strokeWeight(MAGIC.CIRCLE.STROKE);
 
 		beginShape();
