@@ -9,7 +9,7 @@ const MAGIC = {
 	TIGHTNESS: 1.0,
 	CIRCLE: {
 		DELTA: 50,
-		DENSITY: 0.5,
+		DENSITY: 0.2,
 		STROKE: 2,
 	},
 };
@@ -196,7 +196,7 @@ class FlyingThing {
 
 	paint() {
 		stroke('#98B6B1');
-		strokeWeight(0.2);
+		strokeWeight(0.5);
 		fill(0);
 
 		polygon(this.position.x, this.position.y, 4, 3);
