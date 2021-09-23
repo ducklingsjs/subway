@@ -1,79 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Pusher Test</title>
+		<title>OMG Amazing</title>
 		<link rel="stylesheet" href="styles.css" />
 
 		<script src="libraries/p5.min.js"></script>
 		<script src="libraries/p5.sound.min.js"></script>
-		<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-		<script>
-			// Enable pusher logging - don't include this in production
-			Pusher.logToConsole = true;
-
-			var pusher = new Pusher('842243d7ff9c0da44696', {
-				cluster: 'eu',
-			});
-
-			var channel = pusher.subscribe('my-channel');
-			channel.bind('my-event', function (data) {
-				alert(JSON.stringify(data));
-			});
-
-			function sendMessage(message) {
-				var myHeaders = new Headers();
-				myHeaders.append('Content-Type', 'application/json');
-
-				var raw = JSON.stringify({ message: message });
-
-				var requestOptions = {
-					method: 'POST',
-					headers: myHeaders,
-					body: raw,
-					redirect: 'follow',
-				};
-
-				return fetch('http://localhost:3000/', requestOptions)
-					.then((response) => response.text())
-					.then((result) => console.log(result))
-					.catch((error) => console.log('error', error));
-			}
-
-			function processForm(e) {
-				if (e.preventDefault) e.preventDefault();
-				const messageInput = form.elements['messageInput'];
-				sendMessage(messageInput.value).then(() => {
-					messageInput.value = '';
-				});
-				return false;
-			}
-		</script>
 	</head>
 	<body>
-		<h1>Pusher Test</h1>
-		<form id="my-form">
-			<textarea
-				id="messageInput"
-				name="messageInput"
-				rows="4"
-				cols="50"
-				placeholder="Write a message"
-			></textarea>
-			<button type="submit">Submit</button>
-		</form>
-
-		<marquee class="marquee">
-			<ul class="message-list" id="message-list"></ul>
-		</marquee>
+		<div class="container">
+			<marquee class="marquee">
+				<ul class="message-list" id="message-list"></ul>
+			</marquee>
+		</div>
 	</body>
-	<script>
-		var form = document.getElementById('my-form');
-		if (form.attachEvent) {
-			form.attachEvent('submit', processForm);
-		} else {
-			form.addEventListener('submit', processForm);
-		}
-	</script>
 
 	<script src="sketch.js"></script>
 

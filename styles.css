@@ -1,5 +1,7 @@
 html {
 	box-sizing: border-box;
+	height: 100%;
+	max-height: 100vh;
 }
 *,
 *:before,
@@ -8,12 +10,32 @@ html {
 }
 
 body {
+	height: 100%;
+	overflow: hidden;
 	margin: 0;
 	font-family: Arial, sans-serif;
 	font-size: 16px;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	color: white;
+	height: 100%;
+}
+
+.container {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
 }
 
 .marquee {
+	flex: 1;
 	background: black;
 	color: white;
 	height: 40px;
@@ -47,4 +69,26 @@ canvas {
 
 body {
 	overflow: hidden;
+}
+
+#my-form {
+	display: flex;
+	flex-direction: column;
+}
+
+h1 {
+	font-weight: normal;
+}
+
+textarea {
+	margin-bottom: 32px;
+}
+
+textarea,
+#my-form button {
+	padding: 8px 12px;
+	color: white;
+	background: black;
+	border: 1px solid white;
+	border-radius: 8px;
 }

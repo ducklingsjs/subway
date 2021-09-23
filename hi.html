@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Hi!</title>
+		<link rel="stylesheet" href="styles.css" />
+
+		<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+		<script>
+			// Enable pusher logging - don't include this in production
+			Pusher.logToConsole = true;
+
+			var pusher = new Pusher('842243d7ff9c0da44696', {
+				cluster: 'eu',
+			});
+
+			var channel = pusher.subscribe('my-channel');
+			channel.bind('my-event', function (data) {
+				// alert(JSON.stringify(data));
+			});
+
+			function sendMessage(message) {
+				var myHeaders = new Headers();
+				myHeaders.append('Content-Type', 'application/json');
+
+				var raw = JSON.stringify({ message: message });
+
+				var requestOptions = {
+					method: 'POST',
+					headers: myHeaders,
+					body: raw,
+					redirect: 'follow',
+				};
+
+				return fetch('http://localhost:3000/', requestOptions)
+					.then((response) => response.text())
+					.then((result) => console.log(result))
+					.catch((error) => console.log('error', error));
+			}
+
+			function processForm(e) {
+				if (e.preventDefault) e.preventDefault();
+				const messageInput = form.elements['messageInput'];
+				sendMessage(messageInput.value).then(() => {
+					messageInput.value = '';
+				});
+				return false;
+			}
+
+			function openModal() {}
+		</script>
+	</head>
+	<body>
+		<form id="my-form">
+			<h1>Pozdravi 🆒 ekipu!</h1>
+
+			<textarea
+				id="messageInput"
+				name="messageInput"
+				rows="4"
+				cols="50"
+				placeholder="Puno pozdrava ekipi iz 5.e"
+			></textarea>
+			<button type="submit">CAO 👋</button>
+		</form>
+	</body>
+	<script>
+		var form = document.getElementById('my-form');
+		if (form.attachEvent) {
+			form.attachEvent('submit', processForm);
+		} else {
+			form.addEventListener('submit', processForm);
+		}
+	</script>
+</html>

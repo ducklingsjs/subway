@@ -35,7 +35,7 @@ function setup() {
 	// mimics the autoplay policy
 	getAudioContext().suspend();
 
-	mediaElement = createAudio(RADIO.STUDENT, () => {
+	mediaElement = createAudio(RADIO.EXTRA, () => {
 		canPlay = true;
 	});
 
@@ -196,7 +196,8 @@ class FlyingThing {
 
 	paint() {
 		stroke('#98B6B1');
-		fill(255);
+		strokeWeight(0.2);
+		fill(0);
 
 		polygon(this.position.x, this.position.y, 4, 3);
 	}
