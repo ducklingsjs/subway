@@ -1,4 +1,6 @@
 const Pusher = require('pusher');
+var cors = require('cors');
+const express = require('express');
 
 const pusher = new Pusher({
   appId: '1271384',
@@ -8,6 +10,21 @@ const pusher = new Pusher({
   useTLS: true,
 });
 
-pusher.trigger('my-channel', 'my-event', {
-  message: 'hello world',
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+const port = 3000;
+
+app.post('/', (req, res) => {
+  console.log('message', req.body.message);
+  pusher.trigger('my-channel', 'my-event', {
+    message: req.body.message,
+  });
+  res.send('success!');
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
