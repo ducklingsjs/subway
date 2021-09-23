@@ -199,7 +199,6 @@ class FlyingThing {
 		fill(255);
 
 		polygon(this.position.x, this.position.y, 4, 3);
-		// circle(this.position.x, this.position.y, 2);
 	}
 }
 
