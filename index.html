@@ -6,6 +6,20 @@
 
 		<script src="libraries/p5.min.js"></script>
 		<script src="libraries/p5.sound.min.js"></script>
+		<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
+		<script>
+			Pusher.logToConsole = true;
+
+			var pusher = new Pusher('842243d7ff9c0da44696', {
+				cluster: 'eu',
+			});
+
+			var channel = pusher.subscribe('my-channel');
+			channel.bind('my-event', function (data) {
+				addMessage(data.message);
+			});
+		</script>
 	</head>
 	<body>
 		<div class="container">
@@ -16,5 +30,5 @@
 	</body>
 
 	<script type="text/javascript" src="message-slider.js"></script>
-	<scrip type="text/javascript" src="sketch.js"></script>
+	<script type="text/javascript" src="sketch.js"></script>
 </html>
